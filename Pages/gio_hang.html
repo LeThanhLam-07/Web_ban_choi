@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+  <link rel="stylesheet" href="style_header.css">
+  
+</head>
+<body> <div class="container">
+        <header >
+            <div><img alt="banner" height="600px" width="1200px" src="images/banner.png"> </div>
+            <div class="top-right">
+                <img onclick ="showgiohang()" height ="50px" width="50px" src="images/icon_gio_hang.png">
+            </div>
+            <header id="showgiohang">
+                safwfwefwheifh
+     </header>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+var giohangs=[];
+var giohang={
+   masp:"",
+    tensp:"",
+    gia:"",
+    ctsp:"",
+    hinh:"",
+khoitao: function giohang(masp,hinh,ten,gia,soluong){
+this.masp=masp;
+this.tensp=ten;
+this.hinh=hinh;
+this.gia=gia;
+this.soluong=soluong;
+},
+xuatgiohang: function(giohangs){
+    let text="";
+    for(let i=0;i<giohangs.length;i++){
+        text +='<tr>';
+        text += this.motsp_giohang(giohang[i]);
+        text += '</tr>';
+    }
+    if(giohangs.length>0){
+        text +="<tr><td colspan='4'><button onclick='funcion_thanhtoan()'>thanhtoan</button><td></tr>";
+    }
+    return text;
+},
+motsp_giohang: function(giohang){
+    let text="";
+    text +='<td width ="20%"><lable>'+giohang.masp+'</lable><img height="40px" width="60px" src="'+giohang.hinh+'"></td>';
+    text +='<td width ="20%"><p>'+giohang.tensp+'</p></td>';
+    text +='<td width ="25%"><p>$<span>'+giohang.gia+'</span>&emsp;*emsp;+</p></td>';
+    text +='<td width ="5%"><input nam="soluong"disable value-"'+giohang.soluong+'"min-"1"type-"number" ></td>';
+    text +='<td width ="30%"><p>&emsp;-&emsp,$<span>'+giohang.gia*giohang.soluong+'</span></p></td>';
+    text +='<td width ="10%"<button onclick ="xoagiohang(this);">xoa</button><td>';
+},
+xuatsp: function(sanphams){
+        let text="";
+        for(let i=0; i< sanphams.length;i++){
+            text +='<div class="sanpham">';
+                text +=this.motsp(sanphams[i]);
+                text +='</div>';
+        }
+        return text;
+    },
+    motsp: function(sanpham){
+        let text="";
+        text +='<div><img src =./image/'+sanpham.hinh+'"></div>';
+        text +='<p>'+sanpham.tensp+'</p>';
+        text +='<p>&<span>'+sanpham.gia+'</span></p>';
+        text +='<input nam="soluong" value="1"min ="1" type="number"><lable>'+sanpham.masp+'</lable><br>';
+        text +='button onclick="chonhang(this)">chon hang</button>';
+        return text;
+    }
+};
+  function chonhang(x){
+    console.log(y.childern);
+        var the = x.parentElement;
+        let hinh = the.childern[0].children[0].src
+        let ten = the.childern[1].innerText;
+        let gia = the.childern[2].childern[0].innerText;
+        let soluong= the.childern[3].value;
+        let masp = the.childern[4].innerText;
+    }
+    document.getElementById('showgiohang').style.display='none';
+    function showgiohang(){var x= document.getElementById('showgiohang');
+        if(x.style.display == "none"){
+            x.style.display='block';
+        }else{
+            x.style.display='none';
+        }
+        showgiohang();
+    }
+    function kiemtragiohang(masp,giohangs){
+        for(let i= 0; i<giohang.length; i++)
+    {
+        if(giohangs[i].masp==masp){
+            return i;
+        }
+    }
+    return -1;
+    }
+    function chonhang(x){
+        var the = x.parentElement;
+        let hinh= the.childern[0].childern[0].scr
+        let ten = the.childern[1].innerText;
+        let gia=the.childern[2].childern[0].innerText;
+        let soluong= the.childern[3].value;
+        let masp = the.childern[4].innerText;
+        let kt =kiemtragiohang(masp,giohangs);
+        if(kt == -1){
+            let gh = new giohang.khoitao(masp,hinh,ten,gia,soluong);
+            giohangs.push(gh);
+        }else{
+            let sl = Number(giohangs[kt].soluong)+Number(soluong);
+            giohangs[kt].soluong =sl;
+        }
+        showgpiohang();
+        sessionStorage.setItem("giohang",JSON.stringify(giohangs))
+    }
+    function showpgiohang(){
+        let gh = giohang;
+        document.getElementById('danhsachsanpham').innerHTML =gh.xuatgiohang(giohangs);
+    }
+    function xoagiohang(x){
+        var tr =x.parentElement.parentElement;
+        let masp =tr.childern[0].childern[0].innerText;
+        let kt = kiemtragiohang(masp,giohang);
+        if(kt != -1){
+            giohangs.splice(kt,1);
+        }
+        tr.remove();
+        console.log(giohangs);
+    }
+    var thanhtoan =[];
+    function funcion_thanhtoan(){
+        window.location ="thanhtoan.html";
+    }
+</script>

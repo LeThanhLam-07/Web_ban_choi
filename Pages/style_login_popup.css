@@ -1,0 +1,79 @@
+.login_overlay{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.55);
+    z-index: 999;
+}
+.login-popup{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 380px;
+    margin-top: -200px;
+    margin-left: -190px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 35px 30px 30px;
+    box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.25);
+}
+.close-button{
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 28px;
+    color:#999;
+    cursor: pointer;
+    line-height: 1;
+}
+.close-button:hover{
+    color: #333;
+}
+.popup-tittle{
+    font-size: 22px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 28px;
+}
+.login-popup input[type="text"], 
+.login-popup input[type="password"]{
+    width: 100%;
+    height: 44px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    padding: 0 14px;
+    margin-bottom: 16px;
+    font-size: 14px;
+    outline: none;
+    box-sizing: border-box;
+}
+.login-popup input[type="text"]:focus,
+.login-popup input[type="password"]:focus{
+    border-color: #e67e22;
+}
+login-popup button[type="submit"]{
+    width: 100%;
+    height: 46px;
+    background-color: #e67e22;
+    color:white;
+    border:none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 8px;
+}
+.login-popup button[type="submit"]:hover{
+    background-color:#d35400;
+}
+.signuo-link a{
+    color: #e67e22;
+    font-weight:bold;
+    text-decoration: none;
+}
+.signuo-link a:hover{
+    text-decoration: underline;
+}

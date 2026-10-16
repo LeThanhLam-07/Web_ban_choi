@@ -1,0 +1,26 @@
+.container{
+    margin: 0 auto;
+    height: 1600px;
+    width: 1200px;    
+    background-color: aquamarine;
+}
+header{
+    background-color: blue;
+    height: 600px;
+    width: 1200px;
+    position: relative;
+}
+#showgiohang{
+    position: absolute;
+    top: 60px;
+    right: 0px;
+    width: 400px;
+    height: 500px;
+    background-color: rgb(233,220,245);
+    box-shadow: 0 0 5px red;
+}
+.top-right{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}

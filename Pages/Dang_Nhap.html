@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập</title>
+    <link rel="stylesheet" href="style_login_popup.css">
+    <link rel="stylesheet" href="style_header.css">
+    <link rel="stylesheet" href="style_footer.css">
+</head>
+<body>
+
+    <div id="container"></div>
+
+    <header class="header">
+        <div class="logo">
+            <img src="images/logo_moi.png" alt="Logo">
+
+            <div class="timkiem">
+                <input type="text" placeholder="Tìm kiếm sản phẩm...">
+                <button type="button">🔍</button>
+            </div>
+
+            <select class="ngon_ngu">
+                <option>🌐 ngôn ngữ</option>
+                <option value="vi">Tiếng Việt</option>
+                <option value="en">English</option>
+                <option value="cn">中文</option>
+            </select>
+
+            <div class="taikhoan">
+                <img src="images/avatar.png" alt="Avatar">
+                <a href="#" onclick="openlogin(); return false;">Đăng ký | Đăng nhập</a>
+            </div>
+
+            <div class="giohang">
+                <img src="images/icon_gio_hang.png">
+                <a href="gio_hang.html">Giỏ hàng</a>
+            </div>
+
+            <div class="menu">
+                <a href="index.html">Trang chủ</a>
+                <a href="Trang_danh_sach_choi.html">Sản phẩm</a>
+                <a href="Gioi thieu.html">Giới thiệu</a>
+                <a href="lienhe.html">Liên hệ</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="login_overlay" id="login-overlay">
+        <div class="login-popup">
+            <span class="close-button" onclick="closelogin()">&times;</span>
+
+            <h3 class="popup-title">Đăng Nhập</h3>
+
+            <form onsubmit="return validatelLogin(event)">
+                <input type="text" id="email" placeholder="Email hoặc Số điện thoại">
+                <input type="password" id="password" placeholder="Mật khẩu">
+
+                <button type="submit">Đăng Nhập</button>
+
+                <div class="signup-link">
+                    Chưa có tài khoản? 
+                    <a href="Dang_ky.html">Đăng ký</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer id="footer">
+        <div class="email">Email: example@gmail.com</div>
+        <div class="dienthoai">Số điện thoại: 0123456789</div>
+        <div class="diachi">
+            Địa chỉ:
+            <a href="https://www.google.com/maps" target="_blank">
+                613 Âu Cơ, Tân Phú, Hồ Chí Minh 700000, Việt Nam
+            </a>
+        </div>
+        <div class="thongtinlienhe">
+            <p>Liên hệ với chúng tôi</p>
+            <p>Thông tin liên hệ</p>
+            <p>Gửi phản hồi</p>
+            <p>Đánh giá chất lượng dịch vụ</p>
+            <a href="#"><img src="images/fb.png" alt="Facebook"></a>
+            <a href="#"><img src="images/zalo.png" alt="Zalo"></a>
+        </div>
+    </footer>
+
+    <script>
+        function openlogin() {
+            document.getElementById("login-overlay").style.display = "block";
+        }
+
+        function closelogin() {
+            document.getElementById("login-overlay").style.display = "none";
+        }
+
+        function validatelLogin(event) {
+            event.preventDefault();
+
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+
+            if (!email || !password) {
+                alert("Vui lòng nhập đầy đủ thông tin đăng nhập.");
+                return false;
+            }
+
+            alert("Đăng nhập thành công! (demo)");
+            closelogin();
+            return false;
+        }
+
+        document.getElementById("login-overlay").onclick = function(event) {
+            if (event.target === this) {
+                closelogin();
+            }
+        };
+    </script>
+
+</body>
+</html>
+<script>
+    function openlogin() {
+    document.getElementById("login-overlay").style.display = "block";
+}
+
+function closelogin() {
+    document.getElementById("login-overlay").style.display = "none";
+}
+
+function validatelLogin(event) {
+    event.preventDefault();
+
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+
+    if (!email || !password) {
+        alert("Vui lòng nhập đầy đủ thông tin đăng nhập.");
+        return false;
+    }
+
+    alert("Đăng nhập thành công! (demo)");
+    closelogin();
+    return false;
+}
+
+document.getElementById("login-overlay").onclick = function(event) {
+    if (event.target === this) {
+        closelogin();
+    }
+};
+</script>
